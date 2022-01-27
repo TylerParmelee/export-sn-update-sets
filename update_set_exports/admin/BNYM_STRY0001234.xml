@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2022-01-27 22:27:43">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Global">global</application>
+<application_name>Global</application_name>
+<application_scope>global</application_scope>
+<application_version/>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>BNYM_STRY0001234</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>0d46ed442f08411070123f96f699b6b0</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>tyler.parmelee</sys_created_by>
+<sys_created_on>2022-01-27 22:27:42</sys_created_on>
+<sys_id>3ac172752f91011070123f96f699b65d</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>tyler.parmelee</sys_updated_by>
+<sys_updated_on>2022-01-27 22:27:42</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Update set migrator">3020feac2f36301069ecdcb6f699b6fc</application>
+<category>customer</category>
+<comments/>
+<name>sp_widget_73d0cbd82fd7301070123f96f699b662</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller=function($scope) {
+  /* widget controller */
+  var c = this;
+	console.log($scope);
+	c.data.getValue = function(id, value) {  
+		console.log($scope);
+	}
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;*{&amp;#13;
+  background: 'red';&amp;#13;
+&amp;#13;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;dynamic-form-builder&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]&gt;&lt;/link&gt;&lt;name&gt;Dynamic Form Builder&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+	data.fields = {
+		"name": {
+			"type": "string",
+			"disposition": "required",
+			"label": "Asset Name",
+			"name": 'asset_name',
+			"regex": "[a-zA-Z][a-zA-Z0-9_]+",
+			"data": ""
+		},
+		"mne1": {
+			"type": "string",
+			"disposition": "required",
+			"label": "Consumer Mnemonic",
+			"name": 'consumer_mnemonic',
+			"regex": "[A-Z0-9]+",
+			"data": ""
+		},
+		"mne2": {
+			"type": "string",
+			"disposition": "required",
+			"label": "Producer Mnemonics",
+			"name": 'producer_mnemonic',
+			"regex": "([A-Z0-9]+)(,*[A-Z]0-9+)*",
+			"data": ""
+		},
+		"text1": {
+			"type": "string",
+			"disposition": "required",
+			"label": "Queue Manager Name",
+			"name": 'queue_manager',
+			"regex": "[A-Z0-9]+",
+			"data": ""
+		},
+		"lookup1": {
+			"type": "string",
+			"disposition": "required",
+			"label": "Queue Manager Name",
+			"name": 'queue_manager_name',
+			"regex": "[A-Z0-9]+",
+			"data": ""
+		},
+		"env1": {
+			"name": 'env_one',
+			"type": "option",
+			"options": [{
+				"value": "Dev"
+			}, {
+				"value": "Test"
+			}, {
+				"value": "QA"
+			}, {
+				"value": "Prod"
+			}],
+			"minSelection": 1,
+			"maxSelection": 1,
+			"label": "Environment",
+			"data": {
+				"name": ""
+			}
+		}
+	};
+
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-10-15 21:37:34&lt;/sys_created_on&gt;&lt;sys_id&gt;73d0cbd82fd7301070123f96f699b662&lt;/sys_id&gt;&lt;sys_mod_count&gt;74&lt;/sys_mod_count&gt;&lt;sys_name&gt;Dynamic Form Builder&lt;/sys_name&gt;&lt;sys_package display_value="Update set migrator" source="3020feac2f36301069ecdcb6f699b6fc"&gt;3020feac2f36301069ecdcb6f699b6fc&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Update set migrator"&gt;3020feac2f36301069ecdcb6f699b6fc&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_73d0cbd82fd7301070123f96f699b662&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-11-21 03:12:27&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div ng-repeat="field in c.data.fields"&gt;
+  &lt;div ng-if="field.type=='string'" class="form-group"&gt;
+    &lt;label class="control-label" for="{{field.name}}"&gt;{{field.label}}&lt;/label&gt;
+    &lt;input type="text" id="{{field.name}}" dynamic-name="field.name" ng-model="field.data" class="form-control" ng-change="c.data.getValue(field.data)"&gt;
+  &lt;/div&gt;
+  &lt;div ng-if="field.type=='text1'" class="form-group"&gt;
+    &lt;label class="control-label" for="{{field.name}}"&gt;{{field.label}}&lt;/label&gt;
+    &lt;select ng-model="c.data.text1" ng-options="option.value for option in field.options" class="form-control" required/&gt;
+  &lt;/div&gt;
+  &lt;div ng-if="field.type=='text3'" class="form-group"&gt;
+    &lt;label class="control-label"&gt;{{field.label}}&lt;/label&gt;
+    &lt;div&gt;        
+      &lt;div class="checkbox" ng-repeat="option in field.options"&gt;
+        &lt;label&gt;
+          &lt;input type="checkbox" data-ng-model="option.data" name="taskGroup" id="{{option.value}}" value="{{option.value}}"&gt;{{option.value}}
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div ng-if="field.type=='option'" class="form-group"&gt;
+    &lt;label class="control-label" for="{{field.name}}"&gt;{{field.label}}&lt;/label&gt;
+    &lt;select multiple data-ng-model="field.data" ng-options="option.value for option in field.options" class="form-control"/&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+<payload_hash>453575756</payload_hash>
+<remote_update_set display_value="BNYM_STRY0001234">3ac172752f91011070123f96f699b65d</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>tyler.parmelee</sys_created_by>
+<sys_created_on>2022-01-27 22:27:42</sys_created_on>
+<sys_id>32c172752f91011070123f96f699b65e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>17d407b138f0000001</sys_recorded_at>
+<sys_updated_by>tyler.parmelee</sys_updated_by>
+<sys_updated_on>2022-01-27 22:27:42</sys_updated_on>
+<table/>
+<target_name>Dynamic Form Builder</target_name>
+<type>Widget</type>
+<update_domain>global</update_domain>
+<update_guid>b6d66984a50841100128d13663f1356e</update_guid>
+<update_guid_history>b6d66984a50841100128d13663f1356e:453575756,9e48dae2f61730102d6c1150c7903053:-575162723,8a3816e209173010a538d0e4b77e20d7:-1078827224,e0c716e2d21730105b8133f4b3d82124:-1517874383,ca77daa23e17301084ca16fcbb8093d2:-2099728513,a4179aa20c17301023a510ad36cfb4ad:-1379016208,09e69a621e1730100a6923089dffbe48:2078348078,7ec55a62a1173010421f40f21508feaa:176815733,58c1c62215d33010af2a94b51f3465f6:127207117,8b3106229cd330106b31a273c2fb0078:-1736352239,7bf0c2228ad330100127cc37ecec07f4:-45079383,cac0c66e65933010f6db02afbc26e2d2:1657344876,616df16e8a9330108b674a2e8aef9b01:2088181562,264db1ea06933010f0bfe0eacc1eab1e:1959450695,ad4d316e1993301007fd6d026bb38778:393717761,f83a39aaad933010e35e2adc5c24c859:1264729610,8e1ab96a11933010f3c364c453502d5d:1334238666,f309396afa933010378c757dec6c919a:150836620,3ee8b56a5893301071670845e0c48fb6:1958587363,8ec8356a61933010c28d152d4397ef0e:2101995089,b398b16a4d933010ff9fc03d3e25ccc5:1083669225,4998f16aca933010e3a8fc30577f6258:-1848768606,f108f92aca9330106104b387cd19e6b8:1738064622,30d7b52a749330106d6dce6b6a6ef597:-2016047058,8ea7b12aa993301089e0d1e0e074898a:467015694,e157fde639933010ed0f5059dfa87e3e:603233614,8217f9e6549330109b4f205fda77ef80:-2125767069,3d043d2655933010c8260320c5774497:-1374641883,35c37526e29330104c237ca42cf00cca:909544421,6453f9e215933010817c00be91473e4c:1853647653,ea0239e2369330108fb883154a9d2ae4:-154145307,47d171e2cc9330102bc8662f797abd51:-2134266275,6e3b08e02a1f3010dcb9aa65d7f06701:1107126105,aa6a00e0611f3010c0810349624dfdd2:1313039810,571ac8a0491f3010d3654e6ca434237b:-220322121,6fc948a0dd1f30109398fbb6db401f0e:-2024729211,35b904a08e1f3010e31fdb685bd4f701:-1476063240,d259c0a0d91f3010bb1f55340c787deb:-1806511463,88290c60a41f3010af3069ada0ab8992:-205309657,7ce84460af1f3010fe60f3f66472144a:980039102,e4788060631f30101b2093c193d95968:1823621476,8c48c820ee1f3010d592e2cd9c1711dd:-870833983,e8e7c820431f30103ef19dd6c54449d3:-1191310518,30870020261f3010489bf434cd6642df:1324228736,9a278cec65db30106a3992cfdc293fbb:-1028363648,dd0748ac34db30104e9c67ed372d47ff:-552821696,94b548ac01db30106c636ca822737f3f:-1691258342,8b95c4acc6db30102d595cfbc5aae97d:206036163,56f4802c20db3010051af1a023942ed3:1645765391,72c248e841db30108e616bc4285b7f8d:-1963380645,90a204a861db3010b87e28e2e539bbd2:-1818970950,089248a84cdb301000d861b376b21fce:1845894929,e84104a848db301073d65f3a67006449:1251677240,0f908868c9db30106e4ca7e34c269d7b:-943631367,7d70c46819db3010e6b4ec0a227e98ea:1092359856,073040684edb3010c6bc644d9411dd5e:-223028385,a100006854db3010de0d045cbe5c11d4:-838729988,a70677dc2c9b301043be8b0655a42213:1191377599,78e5ff9c469b301003f3ee18088a44b1:1262066381,9b85fb9c4f9b3010d62da0daf84eb983:1998717301,85553f9c349b30102f09366c68604229:294704779,f4457b1c8b9b3010ab8ac569999819cd:-2130982581,cbb4b39c1b9b30106f8ed722f075ccb1:1077301867,c9023bd8309b3010ea9f73ffa9b080d9:660606934,6211bb98839b3010bb98d1ebe1416ab7:-512181076,39b03798ad9b30105c3a015579a04d80:-1674276304,0e607f58859b30109da825546e03177c:-2100024907,2840bb58449b301008a8cf1c6cd18168:1748428695,0000b358c39b3010fc64297d47b89eb0:-803719220,619fa3586c9b3010a08241d81fbd664a:-1604789280,e9ee2f947f9b3010668fee75639e5639:-2010520274,b53d6b94179b3010ece9961afc9cf734:-1840140187,e49caf143e9b30109a8c2a489cea08ba:-872634470,0d11cfd8add73010ad48457c1c489710:-1198097711,46f04fd8f6d730103459dc4624b2b314:1509565329</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_98d456dc2f76301069ecdcb6f699b6a5</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;false&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;change_request&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition table="change_request"&gt;start_dateVALCHANGES^EQ&lt;item endquery="false" field="start_date" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/&gt;&lt;/filter_condition&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Run LTE Rule&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+	var CHANGE_STATE_NEW = '-5';
+	// Testing
+	gs.getSession().putClientData('tracker_' + current.getUniqueValue(), '');
+	var startDateChanged = (current.start_date &amp;&amp; current.start_date != previous.start_date);
+	//check should only occur in the NEW state.
+	var validState = current.state == CHANGE_STATE_NEW;
+	var runInBackground;
+
+	if(previous.start_date != '') {
+		// Previous Date plus 2 days to check if date is within 48 hours of previous date.
+		var previousDateFuture = new GlideDateTime(previous.start_date);
+		previousDateFuture.addDays(2);
+
+		var previousDate = new GlideDateTime(previous.start_date);
+		// Should be within previous date and +2 days
+		var currentDate = new GlideDateTime(current.start_date);
+		var isWithinTwoDays = currentDate.before(previousDateFuture) &amp;&amp; currentDate.after(previousDate);
+		runInBackground = validState &amp;&amp; startDateChanged &amp;&amp; (isWithinTwoDays == false);
+	}
+	
+	if(previous.start_date == '') {
+		runInBackground = validState &amp;&amp; startDateChanged;
+	}
+	
+	gs.addInfoMessage('Run In Background: ' + runInBackground);
+
+	if (runInBackground) {
+		var worker = new GlideScriptedHierarchicalWorker();
+		worker.setProgressName(gs.getMessage("Lead time detection"));
+		worker.setScriptIncludeName("ChangeLeadTimeConflictWorker");
+		worker.setScriptIncludeMethod("start");
+		worker.putMethodArg("sysId", current.getUniqueValue());
+		worker.setBackground(true);
+		worker.start();
+	}
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-09-20 21:54:21&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;98d456dc2f76301069ecdcb6f699b6a5&lt;/sys_id&gt;&lt;sys_mod_count&gt;26&lt;/sys_mod_count&gt;&lt;sys_name&gt;Run LTE Rule&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_98d456dc2f76301069ecdcb6f699b6a5&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-11-21 03:10:41&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=98d456dc2f76301069ecdcb6f699b6a5"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-390706333</payload_hash>
+<remote_update_set display_value="BNYM_STRY0001234">3ac172752f91011070123f96f699b65d</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>tyler.parmelee</sys_created_by>
+<sys_created_on>2022-01-27 22:27:42</sys_created_on>
+<sys_id>b6c172752f91011070123f96f699b65e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>17d407974960000001</sys_recorded_at>
+<sys_updated_by>tyler.parmelee</sys_updated_by>
+<sys_updated_on>2022-01-27 22:27:42</sys_updated_on>
+<table>change_request</table>
+<target_name>Run LTE Rule</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid>4976e1840a084110de353cf4977481ac</update_guid>
+<update_guid_history>4976e1840a084110de353cf4977481ac:-390706333,0cd396348b83301024aac02bb434ebb6:1548532186,fbdcb97cda033010b63134919a5219b9:1613144829,b9310eb68e767010a698f48aafcc843e:1808156624,8a600e760476701001e5f3ff169f1f42:399586639,f58d95ead5f230103ae959311e6edfde:-1241874429,d85b956a2ff2301032e5414918b8fc59:-70584303,178999e63ef23010f5357f263f91b111:-215466460,247995e6f5f2301015923c508bfe0e28:-70584303,8f57516631f23010cdc0bea299dba562:-1452171689,c4b51de21bf2301071a60a787b806db2:325742284,ab31d1ee8cb230109459c60ff1fce3e9:1994734047,bcfb85aa1cb230101089d5aaadd3a597:-1463485176,e882b862bd723010c92a016cc703c673:-1948700879,be0b6caa1432301062a8d7718f168b9c:-1132174710,5eeae8aa92323010462cfa34f8334aa5:-1651892832,7972ad65b2b23010ab94831f7bfe9e87:-753936699,5142a965f4b230103b7b899da3bda3cb:1028984795,55345129de723010988a703a9408e588:-420382276,f0d3c129be32301029f7a1a1aee5bde1:-977316035,0465661019f6301017e6f6dc846e5f6f:-1689052244,48ecdad4d1b630108a1c1df5e21c6673:696925885,59b95a144bb6301057fb32da047ce62a:1918493196,eca9d614d6b63010ad351fdaef6b3221:-1880499337,6689561462b63010133fde032f384ec5:1151961880,3e55521098b6301030fb523d1cac0c49:2045212592,18155edc95763010ea9c2ed24923dfaf:216929977</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_4235fe8b2ff13010ec22351ef699b62c</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;false&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;incident&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition table="incident"&gt;stateCHANGESTO2^EQ&lt;item display_value="In Progress" endquery="false" field="state" goto="false" newquery="false" operator="CHANGESTO" or="false" value="2"/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/&gt;&lt;/filter_condition&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;State updated to assess&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	// Add your code here
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-08-10 20:16:06&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;4235fe8b2ff13010ec22351ef699b62c&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;State updated to assess&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_4235fe8b2ff13010ec22351ef699b62c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-11-21 03:11:19&lt;/sys_updated_on&gt;&lt;template&gt;u_state_in_assess=true^EQ&lt;/template&gt;&lt;when&gt;before&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=4235fe8b2ff13010ec22351ef699b62c"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-1807236575</payload_hash>
+<remote_update_set display_value="BNYM_STRY0001234">3ac172752f91011070123f96f699b65d</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>tyler.parmelee</sys_created_by>
+<sys_created_on>2022-01-27 22:27:42</sys_created_on>
+<sys_id>f2c172752f91011070123f96f699b65e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>17d407a08a50000001</sys_recorded_at>
+<sys_updated_by>tyler.parmelee</sys_updated_by>
+<sys_updated_on>2022-01-27 22:27:42</sys_updated_on>
+<table>incident</table>
+<target_name>State updated to assess</target_name>
+<type>Business Rule</type>
+<update_domain>global</update_domain>
+<update_guid>1e96a584f8084110e2342998d7f45906</update_guid>
+<update_guid_history>1e96a584f8084110e2342998d7f45906:-1807236575,94966584bc08411063d8996445957454:-2029434458,996572cb78f13010ff99f804f02a305f:-1807236575</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sp_widget_5f3f34802f84411070123f96f699b69a</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;const fs = require('fs');&amp;#13;
+const path = require('path');&amp;#13;
+const axios = require('axios');&amp;#13;
+const parserString = require('xml2js').parseString;&amp;#13;
+&amp;#13;
+const config = {&amp;#13;
+    method: 'get',&amp;#13;
+    baseURL: 'https://dev103056.service-now.com/api/352714/update_sets',&amp;#13;
+    headers: {&amp;#13;
+        'Accept': 'Application/xml',&amp;#13;
+        'Content-type': 'Application/xml'&amp;#13;
+    },&amp;#13;
+    auth: {&amp;#13;
+        username: 'tyler.parmelee',&amp;#13;
+        password: 'password123'&amp;#13;
+    },&amp;#13;
+}; &amp;#13;
+&amp;#13;
+axios.get(config)&amp;#13;
+  .then(function (response) {&amp;#13;
+    // handle success&amp;#13;
+    console.log(response);&amp;#13;
+    const xmlFile = getXML(response.data);&amp;#13;
+    writeFileToDir(xmlFile);&amp;#13;
+&amp;#13;
+  })&amp;#13;
+  .catch(function (error) {&amp;#13;
+    // handle error&amp;#13;
+    console.log(error);&amp;#13;
+  })&amp;#13;
+  .then(function () {&amp;#13;
+    // always executed&amp;#13;
+  });&amp;#13;
+&amp;#13;
+&amp;#13;
+function getXML(xmlData) {&amp;#13;
+    parseString(xmlData, function (err, result) {&amp;#13;
+        console.log(result);&amp;#13;
+        return result;&amp;#13;
+    });&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+function writeFileToDir(xmlData) {&amp;#13;
+    const fileName = 'text.xml';  &amp;#13;
+    const path = `C:\Documents\Coding\update_set_exports\${fileName}`;&amp;#13;
+&amp;#13;
+    fs.writeFile(path, xmlData, function (err) {&amp;#13;
+      if (err) throw err;               &amp;#13;
+      console.log('Results Received');&amp;#13;
+    }); &amp;#13;
+}&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data&gt;Adding This&lt;/demo_data&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id/&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]&gt;&lt;/link&gt;&lt;name&gt;NodeJS GET&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-11-21 00:21:40&lt;/sys_created_on&gt;&lt;sys_id&gt;5f3f34802f84411070123f96f699b69a&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;NodeJS GET&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_5f3f34802f84411070123f96f699b69a&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-11-21 03:11:54&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div&gt;
+&lt;!-- your widget template --&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-185765819</payload_hash>
+<remote_update_set display_value="BNYM_STRY0001234">3ac172752f91011070123f96f699b65d</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>tyler.parmelee</sys_created_by>
+<sys_created_on>2022-01-27 22:27:42</sys_created_on>
+<sys_id>fac172752f91011070123f96f699b65d</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>17d407a932f0000001</sys_recorded_at>
+<sys_updated_by>tyler.parmelee</sys_updated_by>
+<sys_updated_on>2022-01-27 22:27:42</sys_updated_on>
+<table/>
+<target_name>NodeJS GET</target_name>
+<type>Widget</type>
+<update_domain>global</update_domain>
+<update_guid>72b6298429084110b54af9b82dfa939a</update_guid>
+<update_guid_history>72b6298429084110b54af9b82dfa939a:-185765819,29df7c805e844110fad8a1899240e223:-881428256,45cfb880498441107847007857d09a89:1230829323</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>

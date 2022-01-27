@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2022-01-27 22:27:43">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Global">global</application>
+<application_name>Global</application_name>
+<application_scope>global</application_scope>
+<application_version/>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>TEST_UPDATE</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>600100ca2f303010ec22351ef699b614</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>tyler.parmelee</sys_created_by>
+<sys_created_on>2022-01-27 22:27:42</sys_created_on>
+<sys_id>76c1b6352f91011070123f96f699b677</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>tyler.parmelee</sys_updated_by>
+<sys_updated_on>2022-01-27 22:27:42</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_client_0fe7f02e2f203010ec22351ef699b651</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;another update to set values&lt;/description&gt;&lt;field&gt;active&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Set Scratchpad&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onLoad() {
+	//Type appropriate comment here, and begin script below
+	g_scratchpad.impact = g_form.getValue('impact');
+	g_scratchpad.urgency = g_form.getValue('urgency');
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-06-07 18:33:21&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;0fe7f02e2f203010ec22351ef699b651&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Set Scratchpad&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_0fe7f02e2f203010ec22351ef699b651&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-06-18 11:32:45&lt;/sys_updated_on&gt;&lt;table&gt;incident&lt;/table&gt;&lt;type&gt;onLoad&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+<payload_hash>992211532</payload_hash>
+<remote_update_set display_value="TEST_UPDATE">76c1b6352f91011070123f96f699b677</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>tyler.parmelee</sys_created_by>
+<sys_created_on>2022-01-27 22:27:42</sys_created_on>
+<sys_id>3ac1b6352f91011070123f96f699b677</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>17a1ee50e530000001</sys_recorded_at>
+<sys_updated_by>tyler.parmelee</sys_updated_by>
+<sys_updated_on>2022-01-27 22:27:42</sys_updated_on>
+<table>incident</table>
+<target_name>Set Scratchpad</target_name>
+<type>Client Script</type>
+<update_domain>global</update_domain>
+<update_guid>de51c0ca56303010e0c1066f9ff4ef0f</update_guid>
+<update_guid_history>de51c0ca56303010e0c1066f9ff4ef0f:992211532,1428bc2ae12030108cd235d360870997:-1253913399</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_client_22b5fc2a2f203010ec22351ef699b6aa</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;this is an update&lt;/description&gt;&lt;field&gt;priority&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;When Priority Chnages&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+	
+	var impactUser = g_form.getValue('caller_id');
+	
+	if(g_user.userID == impactUser &amp;&amp; newValue &lt; 2) {
+		g_form.addErrorMessage('This is the same user!! You cannot do that!');
+		g_form.setValue('impact', g_scratchpad.impact);
+		g_form.setValue('urgency', g_scratchpad.urgency);
+	}
+
+   //Type appropriate comment here, and begin script below
+   
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-06-07 18:25:17&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;22b5fc2a2f203010ec22351ef699b6aa&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;When Priority Chnages&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_22b5fc2a2f203010ec22351ef699b6aa&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-06-18 11:32:26&lt;/sys_updated_on&gt;&lt;table&gt;incident&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+<payload_hash>-121695069</payload_hash>
+<remote_update_set display_value="TEST_UPDATE">76c1b6352f91011070123f96f699b677</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>tyler.parmelee</sys_created_by>
+<sys_created_on>2022-01-27 22:27:42</sys_created_on>
+<sys_id>7ec1b6352f91011070123f96f699b677</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>17a1ee4c4d90000001</sys_recorded_at>
+<sys_updated_by>tyler.parmelee</sys_updated_by>
+<sys_updated_on>2022-01-27 22:27:42</sys_updated_on>
+<table>incident</table>
+<target_name>When Priority Chnages</target_name>
+<type>Client Script</type>
+<update_domain>global</update_domain>
+<update_guid>314104cad6303010107ac23727a8749e</update_guid>
+<update_guid_history>314104cad6303010107ac23727a8749e:-121695069,7898f02efc2030102755c9e1f756185a:-1821029005,0646fc2a7e2030103e4b6140fbdd5ba3:-178123797</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
