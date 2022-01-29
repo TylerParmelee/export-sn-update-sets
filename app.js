@@ -5,23 +5,69 @@ const path = require('path');
 const parseString = require('xml2js').parseString;
 const instance = process.env.INSTANCE;
 
-const url = `${instance}/api/352714/update_sets/retrieve_update_sets`;
-
 const RetrieveFiles = {};
 
+RetrieveFiles.instance = process.env.INSTANCE
+
+RetrieveFiles.headersJSON = {
+    Accept: 'Application/json',
+    'Content-Type': 'Application/json'
+}
+
+RetrieveFiles.headersXML = {
+    Accept: 'Application/xml',
+    'Content-Type': 'Application/json'
+}
+
+RetrieveFiles.auth = {
+    username: process.env.USER_NAME,
+    password: process.env.PASSWORD
+},
+
+RetrieveFiles.getFilesByStory = function(stories) {
+    stories.forEach(number => {
+        const url = `${this.instance}/api/now/table/rm_story?sysparm_fields=number,u_deployment_package&sysparm_query=number=${number}`
+        axios.get(
+            url,
+            {
+                headers: this.headersJSON,
+                auth: this.auth
+            }
+        ).then((response) => {
+            console.log(response.data.result);
+        }).catch((error) => {
+            console.log(error)
+        });
+    });
+}
+
+RetrieveFiles._getUpdateSets = function(deploymentPackages) {
+    deploymentPackages.forEach(set => {
+        const url = `${this.instance}/api/now/table/u_deployment_package?sysparm_fields=u_type,short_de&sysparm_query=number=${number}`
+        axios.get(
+            url,
+            {
+                headers: this.headersJSON,
+                auth: this.auth
+            }
+        ).then((response) => {
+            console.log(response.data.result);
+        }).catch((error) => {
+            console.log(error)
+        });
+    });
+}
+
+// RetrieveFiles.getFilesByStory(['STRY0010013']);
+
 RetrieveFiles.getFilesByUser = function(user) {
+    const url = `${this.instance}/api/352714/update_sets/retrieve_update_sets`;
     axios.post(
         url,
         {created_by: user},
         {
-            headers: {
-                Accept: 'Application/json',
-                'Content-Type': 'Application/json'
-            },
-            auth: {
-                username: process.env.USER_NAME,
-                password: process.env.PASSWORD
-            },
+            headers: this.headersJSON,
+            auth: this.auth
         }
     ).then((response) => {
         this._retrieveXMLRecords(response.data.result);
@@ -31,20 +77,14 @@ RetrieveFiles.getFilesByUser = function(user) {
 }
 
 RetrieveFiles._retrieveXMLRecords = function(ids) {
+    const url = `${this.instance}/api/352714/update_sets/get_xml`;
     ids.forEach(id => {
-        const url = `${instance}/api/352714/update_sets/get_xml`;
         axios.post(
             url,
             {sys_id: id.sys_id},
             {
-                headers: {
-                    Accept: 'Application/xml',
-                    'Content-Type': 'Application/json'
-                },
-                auth: {
-                    username: process.env.USER_NAME,
-                    password: process.env.PASSWORD
-                },
+                headers: this.headersXML,
+                auth: this.auth
             }
         ).then(response => {
             this._getXML(id, response.data);
@@ -82,7 +122,7 @@ RetrieveFiles._readFilesFromDirectory = function(user) {
     return fs.readdirSync(filesPath);
 }
 
-// RetrieveFiles.getFilesByUser('admin');
+RetrieveFiles.getFilesByUser('admin');
 
 RetrieveFiles.sendToGitLab = function(user, files, projectId) {
     const filesPath = path.join(__dirname, `/update_set_exports/${user}`);
@@ -115,12 +155,12 @@ RetrieveFiles._buildJSON = function(path, files) {
         var obj = {
             action: 'create',
             file_path: `${path}/${files[i]}`,
-            content: `${files[i]}`,
+            content: fs.readFileSync(`${path}/${files[i]}`, 'base64'),
         }
         actions.push(obj);
     }
     return actions;
 }
 
-RetrieveFiles.sendToGitLab('admin', RetrieveFiles._readFilesFromDirectory('admin'), '31558220');
+// RetrieveFiles.sendToGitLab('admin', RetrieveFiles._readFilesFromDirectory('admin'), '31558220');
 
