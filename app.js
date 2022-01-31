@@ -3,11 +3,10 @@ const fs = require('fs');
 const axios = require('axios');
 const path = require('path');
 const parseString = require('xml2js').parseString;
-const instance = process.env.INSTANCE;
+const yargs = require('yargs/yargs');
+const { hideBin } = require('yargs/helpers')
 
 const RetrieveFiles = {};
-
-RetrieveFiles.instance = process.env.INSTANCE
 
 RetrieveFiles.headersJSON = {
     Accept: 'Application/json',
@@ -43,7 +42,7 @@ RetrieveFiles.getFilesByStory = function(stories) {
 
 RetrieveFiles._getUpdateSets = function(deploymentPackages) {
     deploymentPackages.forEach(set => {
-        const url = `${this.instance}/api/now/table/u_deployment_package?sysparm_fields=u_type,short_de&sysparm_query=number=${number}`
+        const url = `${this.instance}/api/now/table/u_deployment_package?sysparm_fields=short_description&sysparm_query=sys_id=${set}`
         axios.get(
             url,
             {
@@ -60,8 +59,8 @@ RetrieveFiles._getUpdateSets = function(deploymentPackages) {
 
 // RetrieveFiles.getFilesByStory(['STRY0010013']);
 
-RetrieveFiles.getFilesByUser = function(user) {
-    const url = `${this.instance}/api/352714/update_sets/retrieve_update_sets`;
+RetrieveFiles.getFilesByUser = function(user, instance) {
+    const url = `${instance}/api/352714/update_sets/retrieve_update_sets`;
     axios.post(
         url,
         {created_by: user},
@@ -70,14 +69,14 @@ RetrieveFiles.getFilesByUser = function(user) {
             auth: this.auth
         }
     ).then((response) => {
-        this._retrieveXMLRecords(response.data.result);
+        this._retrieveXMLRecords(response.data.result, instance);
     }).catch((error) => {
         console.log(error)
     });
 }
 
-RetrieveFiles._retrieveXMLRecords = function(ids) {
-    const url = `${this.instance}/api/352714/update_sets/get_xml`;
+RetrieveFiles._retrieveXMLRecords = function(ids, instance) {
+    const url = `${instance}/api/352714/update_sets/get_xml`;
     ids.forEach(id => {
         axios.post(
             url,
@@ -104,8 +103,21 @@ RetrieveFiles._getXML = function(fileData, xmlData) {
 }
 
 RetrieveFiles._writeFileToDir = function(fileName, userPath, xmlData) {
+    if(!fs.existsSync(path.join(__dirname, '/update_set_exports'))) {
+        fs.mkdirSync(path.join(__dirname, '/update_set_exports'));
+    }
+
     const dirPath = path.join(__dirname, '/update_set_exports');
-    const usersPath = `${dirPath}/${userPath}`;
+    const instancePath = `${dirPath}/${this.instanceShort}`
+    const usersPath = `${instancePath}/${userPath}`;
+
+    if(!fs.existsSync(dirPath)) {
+        fs.mkdirSync(dirPath);
+    }
+
+    if(!fs.existsSync(instancePath)) {
+        fs.mkdirSync(instancePath);
+    }
 
     if(!fs.existsSync(usersPath)) {
         fs.mkdirSync(usersPath);
@@ -118,17 +130,15 @@ RetrieveFiles._writeFileToDir = function(fileName, userPath, xmlData) {
 }
 
 RetrieveFiles._readFilesFromDirectory = function(user) {
-    const filesPath = path.join(__dirname, `/update_set_exports/${user}`);
+    const filesPath = path.join(__dirname, `/update_set_exports/${this.instanceShort}/${user}`);
     return fs.readdirSync(filesPath);
 }
-
-RetrieveFiles.getFilesByUser('admin');
 
 RetrieveFiles.sendToGitLab = function(user, files, projectId) {
     const filesPath = path.join(__dirname, `/update_set_exports/${user}`);
     const url = `https://gitlab.com/api/v4/projects/${projectId}/repository/commits`
     var request = {
-        branch: 'dev',
+        branch: 'main',
         commit_message: 'Committing SN Update Sets',
         actions: this._buildJSON(filesPath, files)
     };
@@ -162,5 +172,16 @@ RetrieveFiles._buildJSON = function(path, files) {
     return actions;
 }
 
-// RetrieveFiles.sendToGitLab('admin', RetrieveFiles._readFilesFromDirectory('admin'), '31558220');
+const argv = yargs(hideBin(process.argv)).argv
+
+if(argv.user && argv.instance) {
+    RetrieveFiles.instance = `https://${argv.instance}.service-now.com`
+    RetrieveFiles.instanceShort = argv.instance;
+    RetrieveFiles.getFilesByUser(argv.user, RetrieveFiles.instance);
+    console.log('The following files have been saved -- ')
+} else {
+    console.log('arguments required - (--user=admin && --instance=dev10001): Please provide arguments to export and save files.');
+}
+
+// RetrieveFiles.sendToGitLab('admin', RetrieveFiles._readFilesFromDirectory('admin'), '33251467');
 
