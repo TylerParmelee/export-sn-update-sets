@@ -21,7 +21,7 @@ RetrieveFiles.headersXML = {
 RetrieveFiles.auth = {
     username: process.env.USER_NAME,
     password: process.env.PASSWORD
-},
+}
 
 RetrieveFiles.getFilesByStory = function(stories) {
     stories.forEach(number => {
@@ -95,7 +95,7 @@ RetrieveFiles._retrieveXMLRecords = function(ids, instance) {
 
 RetrieveFiles._getXML = function(fileData, xmlData) {
     parseString(xmlData, (err, result) => {
-        xmlString = result.response.result[0].xmlDoc[0].documentElement[0];
+        let xmlString = result.response.result[0].xmlDoc[0].documentElement[0];
         let encodedString = xmlString.replace('UTF-16', 'UTF-8');
         let fileName = fileData.name + '.xml';
         this._writeFileToDir(fileName, fileData.sys_created_by, encodedString);
@@ -123,10 +123,8 @@ RetrieveFiles._writeFileToDir = function(fileName, userPath, xmlData) {
         fs.mkdirSync(usersPath);
     }
 
-    fs.writeFileSync(`${usersPath}/${fileName}`, xmlData, {encoding: 'utf-8'}, (err) => {
-        if(err) throw err;
-        console.log(`${fileName} has been written to ${usersPath}`);
-    });
+    fs.writeFileSync(`${usersPath}/${fileName}`, xmlData, {encoding: 'utf-8'});
+    console.log(`${fileName} has been written to ${usersPath}`);
 }
 
 RetrieveFiles._readFilesFromDirectory = function(user) {
@@ -137,7 +135,7 @@ RetrieveFiles._readFilesFromDirectory = function(user) {
 RetrieveFiles.sendToGitLab = function(user, files, projectId) {
     const filesPath = path.join(__dirname, `/update_set_exports/${user}`);
     const url = `https://gitlab.com/api/v4/projects/${projectId}/repository/commits`
-    var request = {
+    let request = {
         branch: 'main',
         commit_message: 'Committing SN Update Sets',
         actions: this._buildJSON(filesPath, files)
@@ -162,7 +160,7 @@ RetrieveFiles.sendToGitLab = function(user, files, projectId) {
 RetrieveFiles._buildJSON = function(path, files) {
     let actions = [];
     for(let i = 0; i < files.length; i++) {
-        var obj = {
+        let obj = {
             action: 'create',
             file_path: `${path}/${files[i]}`,
             content: fs.readFileSync(`${path}/${files[i]}`, 'base64'),
@@ -177,8 +175,7 @@ const argv = yargs(hideBin(process.argv)).argv
 if(argv.user && argv.instance) {
     RetrieveFiles.instance = `https://${argv.instance}.service-now.com`
     RetrieveFiles.instanceShort = argv.instance;
-    RetrieveFiles.getFilesByUser(argv.user, RetrieveFiles.instance);
-    console.log('The following files have been saved -- ')
+    RetrieveFiles.getFilesByUser(argv.user, `https://${argv.instance}.service-now.com`);
 } else {
     console.log('arguments required - (--user=admin && --instance=dev10001): Please provide arguments to export and save files.');
 }
